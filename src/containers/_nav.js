@@ -1,6 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import { resourceStatus } from 'src/config/helpers/resource_helpers'
+import { UserStatus } from 'src/config/app_config/user_config'
 
 const _nav =  [
   {
@@ -17,7 +18,7 @@ const _nav =  [
     _tag: 'CSidebarNavDropdown',
     name: 'Manage Categories',
     to: '/categories',
-    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
+    icon: <CIcon name="cil-calculator" customClasses="c-sidebar-nav-icon"/>,
     badge: {
       color: 'success',
       text: 'NEW',
@@ -33,7 +34,56 @@ const _nav =  [
         },
       },
     ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Users',
+    to: '/users',
+    icon: <CIcon name="cil-user" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Users',
+        to: '/users',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Active Users',
+        to: '/users/'+UserStatus.active,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inactive Users',
+        to: '/users/'+UserStatus.inactive,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Read Only Users',
+        to: '/users/'+UserStatus.readOnly,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      }
+    ]
   }
+
   
   
   

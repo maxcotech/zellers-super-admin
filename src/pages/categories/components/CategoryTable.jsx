@@ -145,7 +145,10 @@ const CategoryTable = (props) => {
                                     </table>
                                 </div>
                                 <div>
-                                    <PaginationComponent links={links} onClick={(path) => console.log(path)} />
+                                    <PaginationComponent links={links} onClick={(path) => {
+                                        setCurrentLink(path);
+                                        dispatch(completeWithCategories(path,params,(val) => setLoading(val),onCompleteFetchCategories));
+                                    }} />
                                 </div>
                             </div>
                         ) :

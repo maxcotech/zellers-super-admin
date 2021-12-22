@@ -9,7 +9,6 @@ import {
   CHeaderNavLink,
   CSubheader,
   CBreadcrumbRouter,
-  CLink
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -61,7 +60,7 @@ const TheHeader = () => {
           <CHeaderNavLink to="/dashboard">Dashboard</CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to={`/orders/${orderStatuses.AWAITING_FULFILLMENT}`}>Manage Orders</CHeaderNavLink>
+          <CHeaderNavLink to={`/users`}>Manage Users</CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="px-3">
           <CHeaderNavLink to="/product/create">Create Product</CHeaderNavLink>
