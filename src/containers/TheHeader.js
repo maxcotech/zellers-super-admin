@@ -10,7 +10,6 @@ import {
   CSubheader,
   CBreadcrumbRouter,
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 
 // routes config
 import routes from '../routes'
@@ -23,7 +22,6 @@ import {
 }  from './index'
 import { setSideBarStatus } from 'src/redux/actions/AppActions'
 import SelectCurrencyInput from 'src/components/SelectCurrencyInput'
-import { orderStatuses } from 'src/config/app_config/order_config'
 
 const TheHeader = () => {
   const dispatch = useDispatch()

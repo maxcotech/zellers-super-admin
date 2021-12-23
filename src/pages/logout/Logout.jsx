@@ -8,6 +8,7 @@ const Logout = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
+        console.log('logging user out');
         dispatch(logoutUser());
     },[])
     return (
