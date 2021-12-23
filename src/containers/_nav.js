@@ -82,6 +82,73 @@ const _nav =  [
         },
       }
     ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Stores',
+    to: '/stores',
+    icon: <CIcon name="cil-grid" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Stores',
+        to: '/stores',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Active Stores',
+        to: `/stores/${resourceStatus.active}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inactive Stores',
+        to: `/stores/${resourceStatus.inactive}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Draft Stores',
+        to: `/stores/${resourceStatus.in_draft}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Review Stores',
+        to: `/stores/${resourceStatus.in_review}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Blacklisted Stores',
+        to: `/stores/${resourceStatus.blacklisted}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+
+    ]
   }
 
   

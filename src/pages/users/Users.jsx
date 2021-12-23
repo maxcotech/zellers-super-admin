@@ -131,7 +131,7 @@ const Users = (props) => {
                                     </table>
                               </div>
                               <div>
-                                  <PaginationComponent links={links} onClick={(url) => console.log(url)} />
+                                  <PaginationComponent links={links} onClick={(url) => dispatch(fetchUsers(url,filters))} />
                               </div>
                           </div>:
                           <CAlert color="info">

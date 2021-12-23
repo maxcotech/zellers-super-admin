@@ -35,15 +35,7 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'));
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'));
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'));
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
-const User = React.lazy(() => import('./views/users/User'));
-const CreateStore = React.lazy(() => import('./pages/store/create_store/CreateStore'));
 const Logout = React.lazy(() => import('./pages/logout/Logout'));
-const StaffTokens = React.lazy(() => import('./pages/store/staff_tokens/StaffTokens'));
-const SelectStore = React.lazy(() => import('./pages/store/select_store/SelectStore'));
-const JoinStore =  React.lazy(() => import('./pages/store/join_store/JoinStore'));
-const StoreStaffs = React.lazy(() => import('./pages/store/store_staffs/StoreStaffs'));
-const EditStore = React.lazy(() => import('./pages/store/edit_store/EditStore'));
-const ShippingGroups = React.lazy(() => import('./pages/shipping/shipping_groups/ShippingGroups'));
 const Payments = React.lazy(() => import('./pages/payment/Payment'));
 const Orders = React.lazy(() => import('./pages/orders/Orders'));
 
@@ -52,11 +44,13 @@ const Orders = React.lazy(() => import('./pages/orders/Orders'));
 
 const Categories = React.lazy(() => import('./pages/categories/Categories'));
 const Users = React.lazy(() => import('./pages/users/Users'));
+const Stores = React.lazy(() => import('./pages/stores/Stores'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: "/categories", name:"Categories", component:Categories},
   { path: "/users/:status?", name:"Users", component:Users},
+  { path: "/stores/:status?", name:"Users", component:Stores},
 
 
 
@@ -65,18 +59,10 @@ const routes = [
 
 
 
-
-  { path: "/store/create", name:"Create Store", component: CreateStore},
-  { path: "/store/staff-tokens", name:"Staff Tokens", component: StaffTokens},
-  { path: "/store/join", name:"Join a store", component: JoinStore},
-  { path: "/store/staffs", name:"Store Staffs", component: StoreStaffs},
-  { path: "/store/update", name:"Update Store", component: EditStore},
-
-  { path: "/shipping/groups", name:"Shipping Group", component: ShippingGroups},
+  
   { path: "/payment/init", name:"Payments", component:Payments},
 
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: "/store/select", name: 'Choose Store', component: SelectStore },
 
   { path: "/orders/:order_status", name: 'Store Orders', component: Orders },
 

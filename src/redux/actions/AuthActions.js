@@ -6,7 +6,6 @@ import { handleArrayMessage } from "src/config/helpers/message_helpers";
 import Swal from "sweetalert2";
 import { AUTH_ACTION_TYPES } from "../action_types/AuthActionTypes";
 import { setLoading, useCustomLoader } from "./AppActions";
-import { setStore } from "./StoreActions";
 
 export const setUserData = (data,dispatch) => {
     return new Promise((resolve,reject) => {
@@ -14,11 +13,6 @@ export const setUserData = (data,dispatch) => {
             type:AUTH_ACTION_TYPES.setUserData,
             payload:data
         });
-        dispatch(setStore({
-            current_store:data.current_store ?? null,
-            stores:data.stores ?? []
-        }))
-        
         resolve();
     })
 }
