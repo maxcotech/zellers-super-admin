@@ -149,7 +149,74 @@ const _nav =  [
       },
 
     ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Products',
+    to: '/products',
+    icon: <CIcon name="cil-puzzle" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Products',
+        to: '/products',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Active Products',
+        to: `/products/${resourceStatus.active}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inactive Products',
+        to: `/products/${resourceStatus.inactive}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Draft Products',
+        to: `/products/${resourceStatus.in_draft}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Review Products',
+        to: `/products/${resourceStatus.in_review}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Blacklisted Products',
+        to: `/products/${resourceStatus.blacklisted}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      }
+    ]
   }
+
 
   
   

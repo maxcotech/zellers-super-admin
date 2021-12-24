@@ -4,7 +4,9 @@ const initState = {
     products:[],
     links:[],
     current_link:null,
-    params:null
+    params:{},
+    product_details:null,
+    filters:{}
 
 }
 
@@ -25,8 +27,18 @@ const ProductReducer = (state = initState, action) => {
         case PRODUCT_ACTION_TYPES.setCurrentParams:
             return {
                 ...state,
-                params:action.payload
+                params:{...state.params,...action.payload}
             };
+        case PRODUCT_ACTION_TYPES.setProductDetails:
+            return {
+                ...state,
+                product_details:action.payload
+            };
+        case PRODUCT_ACTION_TYPES.setProductFilters:
+            return {
+                ...state,
+                filters:action.payload
+            }
         default: return state;
 
     }
