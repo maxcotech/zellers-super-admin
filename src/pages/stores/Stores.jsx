@@ -12,6 +12,7 @@ import { BASE_URL } from "src/config/constants/app_constants";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { deleteStore, fetchStores, updateStoreStatus } from "src/redux/actions/StoreActions";
 import SelectResourceStatus from "../categories/components/SelectResourceStatus";
+import StoreProductsBtn from "./components/StoreProductsBtn";
 
 
 const Stores = (props) => {
@@ -84,6 +85,7 @@ const Stores = (props) => {
                                             <th>Country</th>
                                             <th>Store&nbsp;Status</th>
                                             <th>Actions</th>
+                                            <th>Attributes</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -101,6 +103,7 @@ const Stores = (props) => {
                                                     <td>{item.country?.country_name ?? "N/A"}</td>
                                                     <td><SelectResourceStatus id={item.id} changeHandler={onChangeItemStatus} value={item.store_status} /></td>
                                                     <td><LoadingBtn color="danger" onClick={onDeleteItem} data={item.id}>Delete</LoadingBtn></td>
+                                                    <td><StoreProductsBtn store={item.id} title={item.store_name} /></td>
                                                 </tr>
                                             ))
                                         }

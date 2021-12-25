@@ -14,6 +14,7 @@ import UpdateCategoryBtn from "./UpdateCategoryBtn";
 import SelectResourceStatus from "./SelectResourceStatus";
 import LoadingBtn from "src/components/LoadingBtn";
 import { confirmAction } from "src/config/helpers/message_helpers";
+import CategoryProductsBtn from "./CategoryProductsBtn";
 
 const CategoryTable = (props) => {
     const { title, parent, status } = props;
@@ -117,6 +118,7 @@ const CategoryTable = (props) => {
                                                 <th>Display&nbsp;Title</th>
                                                 <th>Category&nbsp;Slug</th>
                                                 <th>Category&nbsp;Status</th>
+                                                <th>Attributes</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -130,12 +132,16 @@ const CategoryTable = (props) => {
                                                         <td>{item.display_title}</td>
                                                         <td>{item.category_slug}</td>
                                                         <td><SelectResourceStatus changeHandler={onItemStatusChange} value={item.status} id={item.id} /></td>
-
                                                         <td>
                                                             <CButtonGroup>
                                                                 <SubCategoryBtn status={status} parent={item.id} title={item.category_title} />
-                                                                <UpdateCategoryBtn onRefresh={onFetchCategories} submitHandler={onUpdateCategory} data={item} />
+                                                                <CategoryProductsBtn title={item.category_title} slug={item.category_slug} />
+                                                            </CButtonGroup>
+                                                        </td>
+                                                        <td>
+                                                            <CButtonGroup>
                                                                 <LoadingBtn onComplete={onFetchCategories} data={item.id} color="danger" onClick={onDeleteCategoryItem} >Delete</LoadingBtn>
+                                                                <UpdateCategoryBtn onRefresh={onFetchCategories} submitHandler={onUpdateCategory} data={item} />
                                                             </CButtonGroup>
                                                         </td>
                                                     </tr>

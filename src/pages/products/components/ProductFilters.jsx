@@ -39,8 +39,8 @@ const ProductFilters = (props) => {
     }
     useEffect(() => {
         searchRef.current.value = params.query ?? "";
-        minPriceRef.current.value = filters.price_range?.min_price ?? "";
-        maxPriceRef.current.value = filters.price_range?.max_price ?? "";
+        minPriceRef.current.value = params.min_price ?? filters.price_range?.min_price ?? "";
+        maxPriceRef.current.value = params.max_price ?? filters.price_range?.max_price ?? "";
         brandRef.current.value = params.brand ?? "";
         ratingRef.current.value = params.rating ?? "";
     },[filters]);
