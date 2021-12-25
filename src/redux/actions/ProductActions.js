@@ -64,7 +64,7 @@ export const fetchProductDetails = (product_slug,iloading = null,onComplete = nu
     }
 }
 
-export const fetchProducts = (url = null,inputparams = null) => {
+export const fetchProducts = (url = null,inputparams = null,onComplete = null) => {
     return async (dispatch,getState) => {
         try{
             dispatch(setLoading(true));
@@ -79,6 +79,7 @@ export const fetchProducts = (url = null,inputparams = null) => {
                 dispatch(setProductFilters(result.data.data.filters));
                 dispatch(setCurrentLink(url ?? `${BASE_URL}catalog`));
                 dispatch(setCurrentParams(params));
+                if(onComplete) onComplete();
             } else {
                 toast.error(result.data?.message ?? "An Error Occurred")
             }
