@@ -215,7 +215,74 @@ const _nav =  [
         },
       }
     ]
-  }
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Brands',
+    to: '/',
+    icon: <CIcon name="cil-drop" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Brands',
+        to: '/brands',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Active Brands',
+        to: `/brands/${resourceStatus.active}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inactive Brands',
+        to: `/brands/${resourceStatus.inactive}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Draft Brands',
+        to: `/brands/${resourceStatus.in_draft}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Review Brands',
+        to: `/brands/${resourceStatus.in_review}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Blacklisted Brands',
+        to: `/brands/${resourceStatus.blacklisted}`,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+
+    ]
+  },
 
 
   

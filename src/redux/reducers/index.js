@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { AUTH_ACTION_TYPES } from "../action_types/AuthActionTypes";
 import AppReducer from "./AppReducer";
 import AuthReducer from "./AuthReducer";
+import BrandReducer from "./BrandReducer";
 import CategoryReducer from "./CategoryReducer";
 import CountryReducer from "./CountryReducer";
 import CurrentProductReducer from "./CurrentProductReducer";
@@ -29,7 +30,8 @@ const appReducers = combineReducers({
     shipping_group:ShippingGroupReducer,
     shipping_location:ShippingLocationReducer,
     order:OrderReducer,
-    user:UserReducer
+    user:UserReducer,
+    brand:BrandReducer
 });
 
 const rootReducers = (state,action) => {

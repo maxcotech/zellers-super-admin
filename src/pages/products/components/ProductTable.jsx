@@ -1,4 +1,4 @@
-import { CButtonGroup } from "@coreui/react";
+import { CAlert, CButtonGroup } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import ExpandableImage from "src/components/ExpandableImage";
 import HtmlEntity from "src/components/HtmlEntity";
@@ -30,7 +30,10 @@ const ProductTable = (props) => {
     }
     return (
         <>
-            <div className="table-responsive">
+            {
+                (products.length > 0)?
+                <>
+                    <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -71,6 +74,13 @@ const ProductTable = (props) => {
                     </tbody>
                 </table>
             </div>
+                </>:
+                <CAlert color="info">
+                    <h4>No Products</h4>
+                    <p>Sorry, could not find any product to render.</p>
+                </CAlert>
+            }
+            
         </>
     )
 }

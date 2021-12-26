@@ -45,6 +45,7 @@ const Products = React.lazy(() => import('./pages/products/Products'));
 const Categories = React.lazy(() => import('./pages/categories/Categories'));
 const Users = React.lazy(() => import('./pages/users/Users'));
 const Stores = React.lazy(() => import('./pages/stores/Stores'));
+const BrandPage = React.lazy(() => import('./pages/brands/Brands'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -52,6 +53,7 @@ const routes = [
   { path: "/users/:status?", name:"Users", component:Users},
   { path: "/stores/:status?", name:"Stores", component:Stores},
   { path: "/products/:status?", name:"Products", component:Products},
+  { path: "/brands/:status?", name:"Brands", component:BrandPage},
 
 
 

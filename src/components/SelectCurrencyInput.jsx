@@ -15,7 +15,10 @@ const SelectCurrencyInput = () => {
     const onCurrencyChange = (e) => {
         const value = e.target.value;
         if(value != ""){
-            dispatch(updateUserCurrency(value,(val) => setLoading(val)))
+            dispatch(updateUserCurrency(
+                value,(val) => setLoading(val),
+                () => window.location.reload()
+            ))
         }
     }
     useEffect(() => {

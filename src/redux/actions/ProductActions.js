@@ -5,7 +5,6 @@ import { handleAxiosError } from "src/config/helpers/http_helpers"
 import { resourceStatus } from "src/config/helpers/resource_helpers"
 import { PRODUCT_ACTION_TYPES } from "../action_types/ProductActionTypes"
 import { setLoading, useCustomLoader } from "./AppActions"
-import { setWholeCurrentProduct } from "./CurrentProductActions"
 
 export const setProducts = (data) => {
     return {
@@ -64,27 +63,57 @@ export const fetchProductDetails = (product_slug,iloading = null,onComplete = nu
     }
 }
 
-export const fetchProducts = (url = null,inputparams = null) => {
+export const defaultCategoryProductUrl = `${BASE_URL}category/products/`
+
+export const fetchCategoryProducts = (url = null,iparams = null,iloader = null, onComplete = null) => {
     return async (dispatch,getState) => {
         try{
-            dispatch(setLoading(true));
+            dispatch(useCustomLoader(true,iloader));
+            const state = getState();
+            const {current_link} = state.product;
+            const defaultParams = state.product.params ?? {status:resourceStatus.active};
+            const params = iparams ?? defaultParams;
+            const currentPath = url ?? current_link;
+            const result = await axios.get(currentPath,{params});
+            dispatch(useCustomLoader(false,iloader));
+            if(result.data?.status === "success"){
+                dispatch(setProducts(result.data.data));
+                dispatch(setProductFilters(result.data.data.filters));
+                dispatch(setCurrentLink(currentPath));
+                dispatch(setCurrentParams(params));
+                if(onComplete) onComplete();
+            } else {
+                toast.error(result.data?.message ?? "An Error Occurred");
+            }
+        }
+        catch(ex){
+            dispatch(useCustomLoader(false,iloader));
+            handleAxiosError(ex);
+        }
+    }
+}
+export const defaultCatalogUrl = `${BASE_URL}catalog`;
+export const fetchProducts = (url = null,inputparams = null,onComplete = null,iloader = null) => {
+    return async (dispatch,getState) => {
+        try{
+            dispatch(useCustomLoader(true,iloader));
             const state = getState();
             const defaultParams = state.product.params ?? {status:resourceStatus.active};
             const params = inputparams ?? defaultParams;
-            params.store_id = state.store.current_store?.id;
-            const result = await axios.get(url ?? `${BASE_URL}catalog`,{params});
-            dispatch(setLoading(false));
+            const result = await axios.get(url ?? defaultCatalogUrl,{params});
+            dispatch(useCustomLoader(false,iloader));
             if(result.data?.status === "success"){
                 dispatch(setProducts(result.data.data));
                 dispatch(setProductFilters(result.data.data.filters));
                 dispatch(setCurrentLink(url ?? `${BASE_URL}catalog`));
                 dispatch(setCurrentParams(params));
+                if(onComplete) onComplete();
             } else {
                 toast.error(result.data?.message ?? "An Error Occurred")
             }
         } 
         catch(ex){
-            dispatch(setLoading(false));
+            dispatch(useCustomLoader(false,iloader));
             handleAxiosError(ex);
         }
 

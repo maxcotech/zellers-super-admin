@@ -41,7 +41,8 @@ const SelectResourceStatus = (props) => {
 SelectResourceStatus.propTypes = {
     changeHandler: PropTypes.func,
     id: PropTypes.number,
-    shouldWarn: PropTypes.bool
+    shouldWarn: PropTypes.bool,
+    value: PropTypes.number
 }
 
 export default SelectResourceStatus;

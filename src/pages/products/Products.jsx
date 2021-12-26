@@ -20,7 +20,9 @@ const Products = () => {
     const [showFilters,setShowFilters] = useState(false);
     const {products,links,params} = useSelector(state => state.product);
     const {loading} = useSelector(state => state.app);
-    
+    const onFilter = (params) => {
+        dispatch(fetchProducts(`${BASE_URL}catalog`,params,() => setShowFilters(false)))
+    }
     useEffect(() => {
         dispatch(setCurrentParams({status}))
         dispatch(fetchProducts(`${BASE_URL}catalog`,{...params,status}))
@@ -53,7 +55,7 @@ const Products = () => {
 
             </CCard>  
             <AppModal title="Product Filters"  show={showFilters} onClose={() => setShowFilters(false)}>
-                <ProductFilters />
+                <ProductFilters onApplyChanges={onFilter} />
             </AppModal>    
         </>
     )
