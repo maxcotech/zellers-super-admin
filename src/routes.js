@@ -41,7 +41,7 @@ const Orders = React.lazy(() => import('./pages/orders/Orders'));
 
 
 
-
+const Products = React.lazy(() => import('./pages/products/Products'));
 const Categories = React.lazy(() => import('./pages/categories/Categories'));
 const Users = React.lazy(() => import('./pages/users/Users'));
 const Stores = React.lazy(() => import('./pages/stores/Stores'));
@@ -50,7 +50,8 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: "/categories", name:"Categories", component:Categories},
   { path: "/users/:status?", name:"Users", component:Users},
-  { path: "/stores/:status?", name:"Users", component:Stores},
+  { path: "/stores/:status?", name:"Stores", component:Stores},
+  { path: "/products/:status?", name:"Products", component:Products},
 
 
 
@@ -59,7 +60,7 @@ const routes = [
 
 
 
-  
+
   { path: "/payment/init", name:"Payments", component:Payments},
 
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },

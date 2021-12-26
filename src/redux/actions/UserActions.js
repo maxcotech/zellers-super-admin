@@ -67,7 +67,7 @@ export const deleteUser = (user_id,iloader = null,onComplete = null) => {
     return async (dispatch) => {
         try{
             dispatch(useCustomLoader(true,iloader));
-            const result = await axios.delete(`${BASE_URL}user/${user_id}`);
+            const result = await axios.delete(`${BASE_URL}user/account/${user_id}`);
             dispatch(useCustomLoader(false,iloader));
             if(result.data?.status === "success"){
                 toast.success(result.data.message);
