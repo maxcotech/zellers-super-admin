@@ -15,6 +15,7 @@ import StoreReducer from "./StoreReducer";
 import StoreStaffReducer from "./StoreStaffReducer";
 import UserReducer from "./UserReducer";
 import VariationOptionReducer from "./VariationOptionReducer";
+import WalletReducer from "./WalletReducer";
 
 const appReducers = combineReducers({
     auth:AuthReducer,
@@ -31,7 +32,8 @@ const appReducers = combineReducers({
     shipping_location:ShippingLocationReducer,
     order:OrderReducer,
     user:UserReducer,
-    brand:BrandReducer
+    brand:BrandReducer,
+    wallet:WalletReducer
 });
 
 const rootReducers = (state,action) => {
