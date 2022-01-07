@@ -16,6 +16,81 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavDropdown',
+    name: 'Manage Widgets',
+    to: '/widgets',
+    icon: <CIcon name="cil-calculator" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Create Widget',
+        to: '/widget/create',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Widgets',
+        to: '/widgets',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Active Widgets',
+        to: '/widgets/'+resourceStatus.active,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inactive Widgets',
+        to: '/widgets/'+resourceStatus.inactive,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Draft Widgets',
+        to: '/widgets/'+resourceStatus.in_draft,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Review Widgets',
+        to: '/widgets/'+resourceStatus.in_review,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Blacklisted Widgets',
+        to: '/widgets/'+resourceStatus.blacklisted,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      }
+    ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
     name: 'Manage Categories',
     to: '/categories',
     icon: <CIcon name="cil-calculator" customClasses="c-sidebar-nav-icon"/>,

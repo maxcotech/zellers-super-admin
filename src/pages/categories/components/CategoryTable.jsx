@@ -11,7 +11,7 @@ import SubCategoryBtn from "./SubCategoryBtn";
 import AppModal from "src/components/AppModal";
 import CategoryForm from "./CategoryForm";
 import UpdateCategoryBtn from "./UpdateCategoryBtn";
-import SelectResourceStatus from "./SelectResourceStatus";
+import SelectResourceStatus from "../../../components/SelectResourceStatus";
 import LoadingBtn from "src/components/LoadingBtn";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import CategoryProductsBtn from "./CategoryProductsBtn";
