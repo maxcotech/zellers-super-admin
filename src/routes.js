@@ -49,6 +49,7 @@ const BrandPage = React.lazy(() => import('./pages/brands/Brands'));
 const Wallet = React.lazy(() => import('./pages/funds/wallet/Wallet'));
 const WidgetsPage = React.lazy(() => import('./pages/widgets/Widgets'));
 const CreateWidget = React.lazy(() => import('./pages/widgets/CreateWidget'));
+const DashboardPage = React.lazy(() => import('./pages/dashboard/Dashboard'));
 
 
 const routes = [
@@ -72,7 +73,7 @@ const routes = [
 
   { path: "/payment/init", name:"Payments", component:Payments},
 
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardPage },
 
   { path: "/orders/:order_status", name: 'Store Orders', component: Orders },
 

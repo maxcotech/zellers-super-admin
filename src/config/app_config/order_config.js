@@ -24,3 +24,15 @@ export const getOrderStatusText = (id) => {
     }
     return "N/A";
 }
+
+export const getOrderStatusColor = (id) => {
+    switch(id){
+        case orderStatuses.AWAITING_FULFILLMENT: return "primary";
+        case orderStatuses.AWAITING_PICKUP: return "info";
+        case orderStatuses.AWAITING_SHIPPING: return "light";
+        case orderStatuses.CANCELLED: return "danger";
+        case orderStatuses.PENDING: return "warning";
+        case orderStatuses.COMPLETED: return "success";
+        default: return "dark";
+    }
+}

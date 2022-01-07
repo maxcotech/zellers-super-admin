@@ -6,6 +6,7 @@ import BrandReducer from "./BrandReducer";
 import CategoryReducer from "./CategoryReducer";
 import CountryReducer from "./CountryReducer";
 import CurrentProductReducer from "./CurrentProductReducer";
+import DashboardReducer from "./DashboardReducer";
 import OrderReducer from "./OrderReducer";
 import ProductReducer from "./ProductReducer";
 import ShippingGroupReducer from "./ShippingGroupReducer";
@@ -35,7 +36,8 @@ const appReducers = combineReducers({
     user:UserReducer,
     brand:BrandReducer,
     wallet:WalletReducer,
-    widget:WidgetReducer
+    widget:WidgetReducer,
+    dashboard:DashboardReducer
 });
 
 const rootReducers = (state,action) => {
