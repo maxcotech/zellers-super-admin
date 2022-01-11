@@ -28,7 +28,7 @@ const Dashboard = (props) => {
     return ( 
         <div>
             <CRow>
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{total_users} Users</HtmlEntity>}
                         text="Total Users"
@@ -38,7 +38,7 @@ const Dashboard = (props) => {
                         <CIcon name="cil-chartPie" height="36" />
                     </CWidgetProgressIcon>
                 </CCol>
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{total_stores} Stores</HtmlEntity>}
                         text="Total Stores"
@@ -49,7 +49,7 @@ const Dashboard = (props) => {
                     </CWidgetProgressIcon>
                 </CCol>
                 
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{total_products} Products</HtmlEntity>}
                         text="Total Products"
@@ -59,7 +59,7 @@ const Dashboard = (props) => {
                         <CIcon name="cil-chartPie" height="36" />
                     </CWidgetProgressIcon>
                 </CCol>
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{total_orders} Orders</HtmlEntity>}
                         text="Total Orders"

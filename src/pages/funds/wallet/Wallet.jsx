@@ -42,7 +42,7 @@ const Wallet = (props) => {
     return ( 
         <div>
             <CRow>
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{currency_sym+total_balance}</HtmlEntity>}
                         text="Total Balance"
@@ -52,7 +52,7 @@ const Wallet = (props) => {
                         <CIcon name="cil-chartPie" height="36" />
                     </CWidgetProgressIcon>
                 </CCol>
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{currency_sym+locked_credits}</HtmlEntity>}
                         text="Pending Credit"
@@ -63,7 +63,7 @@ const Wallet = (props) => {
                     </CWidgetProgressIcon>
                 </CCol>
                 
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{currency_sym+unlocked_credits}</HtmlEntity>}
                         text="Total Credits"
@@ -73,7 +73,7 @@ const Wallet = (props) => {
                         <CIcon name="cil-chartPie" height="36" />
                     </CWidgetProgressIcon>
                 </CCol>
-                <CCol>
+                <CCol lg={3} sm={12}>
                     <CWidgetProgressIcon
                         header={<HtmlEntity>{currency_sym+total_debits}</HtmlEntity>}
                         text="Total Debits"

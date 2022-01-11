@@ -4,6 +4,7 @@ import AppReducer from "./AppReducer";
 import AuthReducer from "./AuthReducer";
 import BrandReducer from "./BrandReducer";
 import CategoryReducer from "./CategoryReducer";
+import CityReducer from "./CityReducer";
 import CountryReducer from "./CountryReducer";
 import CurrentProductReducer from "./CurrentProductReducer";
 import DashboardReducer from "./DashboardReducer";
@@ -12,6 +13,7 @@ import ProductReducer from "./ProductReducer";
 import ShippingGroupReducer from "./ShippingGroupReducer";
 import ShippingLocationReducer from "./ShippingLocationReducer";
 import StaffTokenReducer from "./StaffTokenReducer";
+import StateReducer from "./StateReducer";
 import StoreReducer from "./StoreReducer";
 import StoreStaffReducer from "./StoreStaffReducer";
 import UserReducer from "./UserReducer";
@@ -37,7 +39,9 @@ const appReducers = combineReducers({
     brand:BrandReducer,
     wallet:WalletReducer,
     widget:WidgetReducer,
-    dashboard:DashboardReducer
+    dashboard:DashboardReducer,
+    state:StateReducer,
+    city:CityReducer
 });
 
 const rootReducers = (state,action) => {

@@ -50,7 +50,7 @@ const Wallet = React.lazy(() => import('./pages/funds/wallet/Wallet'));
 const WidgetsPage = React.lazy(() => import('./pages/widgets/Widgets'));
 const CreateWidget = React.lazy(() => import('./pages/widgets/CreateWidget'));
 const DashboardPage = React.lazy(() => import('./pages/dashboard/Dashboard'));
-
+const LocationsPage = React.lazy(() => import('./pages/locations/Locations'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -62,7 +62,7 @@ const routes = [
   { path: "/funds/wallet", name:"Wallet", component:Wallet},
   { path: "/widget/create", name:"Create Widget", component:CreateWidget},
   { path: "/widgets/:status?", name:"Widgets", component:WidgetsPage},
-
+  { path: "/locations", name:"Locations", component: LocationsPage},
 
 
 

@@ -381,6 +381,29 @@ const _nav =  [
       
     ]
   },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Locations',
+    to: '/locations',
+    icon: <CIcon name="cil-credit-card" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Supported Countries',
+        to: '/locations',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+     
+      
+    ]
+  },
 
 
   
