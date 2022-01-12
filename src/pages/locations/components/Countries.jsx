@@ -10,6 +10,7 @@ import PaginationComponent from "src/components/PaginationComponent";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { createCountry, defaultCountriesUrl, deleteCountry, fetchCountries } from "src/redux/actions/CountryActions";
 import CountryForm from "./CountryForm";
+import CurrenciesBtn from "./CurrenciesBtn";
 import StatesBtn from "./StatesBtn";
 import UpdateCountryBtn from "./UpdateCountryBtn";
 
@@ -85,7 +86,11 @@ const Countries = (props) => {
                                                     </CButtonGroup>
                                                 </td>
                                                 <td>
-                                                    <StatesBtn country={item} />
+                                                    <CButtonGroup>
+                                                        <StatesBtn country={item} />
+                                                        <CurrenciesBtn country={item} />
+
+                                                    </CButtonGroup>
                                                 </td>
                                             </tr>
                                         ))

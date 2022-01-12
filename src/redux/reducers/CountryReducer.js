@@ -3,6 +3,7 @@ const { COUNTRY_ACTION_TYPES } = require("../action_types/CountryActionTypes");
 const initState = {
     countries:[],
     countries_params:{},
+    currencies_params:{},
     current_countries_link:null,
     countries_links:[],
     currencies:[]
@@ -27,6 +28,9 @@ const CountryReducer = (state = initState, action) => {
         };
         case COUNTRY_ACTION_TYPES.setCountriesParams:{
             return {...state,countries_params:action.payload};
+        }
+        case COUNTRY_ACTION_TYPES.setCurrenciesParams:{
+            return {...state,currencies_params:action.payload};
         }
         default:return state;
     }

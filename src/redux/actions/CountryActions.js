@@ -3,7 +3,7 @@ import { toast } from "react-toastify"
 import { BASE_URL } from "src/config/constants/app_constants"
 import { handleAxiosError } from "src/config/helpers/http_helpers"
 import { COUNTRY_ACTION_TYPES } from "../action_types/CountryActionTypes"
-import { deleteService, postService, putService } from "./ActionServices"
+import { deleteService, getService, postService, putService } from "./ActionServices"
 import { setLoading, useCustomLoader } from "./AppActions"
 
 export const defaultCountriesUrl = `${BASE_URL}countries`;
@@ -42,22 +42,34 @@ export const setCurrencies = (currencies) => {
     }
 }
 
-export const fetchCurrencies = () => {
+export const setCurrenciesParams = (payload) => ({type:COUNTRY_ACTION_TYPES.setCurrenciesParams,payload});
+
+export const fetchCurrencies = (params = {},iloader = null,onComplete = null) => {
     return async (dispatch) => {
-        try{
-            dispatch(setLoading(true));
-            const result = await axios.get(`${BASE_URL}currencies`);
-            dispatch(setLoading(false));
-            if(result.data?.status == "success"){
-                dispatch(setCurrencies(result.data.data));
-            } else {
-                toast.error(result.data?.message ?? "An Error Occurred.");
-            }
+        dispatch(getService(`${BASE_URL}currencies`,{params,iloader,onComplete:(data) => {
+            dispatch(setCurrencies(data));
+            dispatch(setCurrenciesParams(params));
+            if(onComplete) onComplete(data);
         }
-        catch(ex){
-            handleAxiosError(ex);
-            dispatch(setLoading(false));
-        }
+    }))
+    }
+}
+
+export const createCurrency = (data,iloader = null,onComplete = null) => {
+    return async (dispatch) => {
+        dispatch(postService(`${BASE_URL}currency`,data,{iloader,onComplete}));
+    }
+}
+
+export const updateCurrency = (data,iloader = null, onComplete = null) => {
+    return (dispatch) => {
+        dispatch(putService(`${BASE_URL}currency`,data,{iloader,onComplete}))
+    }
+}
+
+export const deleteCurrency = (data,iloader = null, onComplete = null) => {
+    return (dispatch) => {
+        dispatch(deleteService(`${BASE_URL}currency/${data}`,{iloader,onComplete}))
     }
 }
 

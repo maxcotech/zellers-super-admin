@@ -114,7 +114,7 @@ const routes = [
   { path: '/notifications/badges', name: 'Badges', component: Badges },
   { path: '/notifications/modals', name: 'Modals', component: Modals },
   { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
-  { path: '/widgets', name: 'Widgets', component: Widgets },
+  { path: '/demo/widgets', name: 'Widgets', component: Widgets },
 ];
 
 export default routes;
