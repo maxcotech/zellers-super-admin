@@ -51,6 +51,7 @@ const WidgetsPage = React.lazy(() => import('./pages/widgets/Widgets'));
 const CreateWidget = React.lazy(() => import('./pages/widgets/CreateWidget'));
 const DashboardPage = React.lazy(() => import('./pages/dashboard/Dashboard'));
 const LocationsPage = React.lazy(() => import('./pages/locations/Locations'));
+const SettingsPage = React.lazy(() => import('./pages/settings/Settings'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -63,6 +64,8 @@ const routes = [
   { path: "/widget/create", name:"Create Widget", component:CreateWidget},
   { path: "/widgets/:status?", name:"Widgets", component:WidgetsPage},
   { path: "/locations", name:"Locations", component: LocationsPage},
+  { path: "/settings", name:"Settings", component: SettingsPage},
+
 
 
 

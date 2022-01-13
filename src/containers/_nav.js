@@ -404,20 +404,29 @@ const _nav =  [
       
     ]
   },
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  ,
-
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Account',
+    to: '/settings',
+    icon: <CIcon name="cil-credit-card" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Account Settings',
+        to: '/settings',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+     
+      
+    ]
+  },
   {
     _tag: 'CSidebarNavItem',
     name: 'Logout',
@@ -427,7 +436,20 @@ const _nav =  [
       color: 'success',
       text: 'NEW',
     }
-  },
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+/*
+  
   {
     _tag: 'CSidebarNavTitle',
     _children: ['Theme']
@@ -722,7 +744,7 @@ const _nav =  [
   {
     _tag: 'CSidebarNavDivider',
     className: 'm-2'
-  }
+  }*/
 ]
 
 export default _nav
