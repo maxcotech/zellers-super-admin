@@ -4,17 +4,22 @@ import AppReducer from "./AppReducer";
 import AuthReducer from "./AuthReducer";
 import BrandReducer from "./BrandReducer";
 import CategoryReducer from "./CategoryReducer";
+import CityReducer from "./CityReducer";
 import CountryReducer from "./CountryReducer";
 import CurrentProductReducer from "./CurrentProductReducer";
+import DashboardReducer from "./DashboardReducer";
 import OrderReducer from "./OrderReducer";
 import ProductReducer from "./ProductReducer";
 import ShippingGroupReducer from "./ShippingGroupReducer";
 import ShippingLocationReducer from "./ShippingLocationReducer";
 import StaffTokenReducer from "./StaffTokenReducer";
+import StateReducer from "./StateReducer";
 import StoreReducer from "./StoreReducer";
 import StoreStaffReducer from "./StoreStaffReducer";
 import UserReducer from "./UserReducer";
 import VariationOptionReducer from "./VariationOptionReducer";
+import WalletReducer from "./WalletReducer";
+import WidgetReducer from "./WidgetReducer";
 
 const appReducers = combineReducers({
     auth:AuthReducer,
@@ -31,7 +36,12 @@ const appReducers = combineReducers({
     shipping_location:ShippingLocationReducer,
     order:OrderReducer,
     user:UserReducer,
-    brand:BrandReducer
+    brand:BrandReducer,
+    wallet:WalletReducer,
+    widget:WidgetReducer,
+    dashboard:DashboardReducer,
+    state:StateReducer,
+    city:CityReducer
 });
 
 const rootReducers = (state,action) => {

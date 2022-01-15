@@ -11,7 +11,7 @@ import Spinner from "src/components/Spinner";
 import { BASE_URL } from "src/config/constants/app_constants";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { deleteStore, fetchStores, updateStoreStatus } from "src/redux/actions/StoreActions";
-import SelectResourceStatus from "../categories/components/SelectResourceStatus";
+import SelectResourceStatus from "../../components/SelectResourceStatus";
 import StoreProductsBtn from "./components/StoreProductsBtn";
 
 

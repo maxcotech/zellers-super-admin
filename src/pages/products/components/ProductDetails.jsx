@@ -8,7 +8,7 @@ import LoadingBtn from "src/components/LoadingBtn";
 import Spinner from "src/components/Spinner";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { normalizeSnakeCasing } from "src/config/helpers/string_helpers";
-import SelectResourceStatus from "src/pages/categories/components/SelectResourceStatus";
+import SelectResourceStatus from "src/components/SelectResourceStatus";
 import { deleteProduct, fetchProductDetails, updateProductStatus } from "src/redux/actions/ProductActions";
 
 

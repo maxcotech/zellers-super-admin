@@ -1,5 +1,4 @@
-import CIcon from "@coreui/icons-react";
-import { CAlert, CButton, CButtonGroup, CCard, CCardBody, CCardHeader } from "@coreui/react";
+import { CAlert, CButton, CCard, CCardBody, CCardHeader } from "@coreui/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -39,7 +38,7 @@ const Products = () => {
                 </CCardHeader>
                 <CCardBody>
                     {
-                        (products.length > 0)?
+                        (products?.length > 0)?
                         <div>
                             <ProductTable products={products} />
                             <div>

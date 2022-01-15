@@ -16,3 +16,7 @@ export const UserStatus = {
     active : 1,
     readOnly : 2,
 }
+
+export const preferenceKeys = {
+    commissionPreference:"commission_preference"
+}

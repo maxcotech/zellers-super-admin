@@ -68,7 +68,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs="6">
-                        <CButton onClick={() => onSubmit()} color="primary" className="px-4"><Spinner color="text-light" status={loading} /> Login</CButton>
+                        <CButton disabled={loading} onClick={() => onSubmit()} color="primary" className="px-4"><Spinner color="text-light" status={loading} /> Login</CButton>
                       </CCol>
                       <CCol xs="6" className="text-right">
                         <CButton href="/forgot-password" color="link" className="px-0">Forgot password?</CButton>

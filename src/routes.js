@@ -46,6 +46,12 @@ const Categories = React.lazy(() => import('./pages/categories/Categories'));
 const Users = React.lazy(() => import('./pages/users/Users'));
 const Stores = React.lazy(() => import('./pages/stores/Stores'));
 const BrandPage = React.lazy(() => import('./pages/brands/Brands'));
+const Wallet = React.lazy(() => import('./pages/funds/wallet/Wallet'));
+const WidgetsPage = React.lazy(() => import('./pages/widgets/Widgets'));
+const CreateWidget = React.lazy(() => import('./pages/widgets/CreateWidget'));
+const DashboardPage = React.lazy(() => import('./pages/dashboard/Dashboard'));
+const LocationsPage = React.lazy(() => import('./pages/locations/Locations'));
+const SettingsPage = React.lazy(() => import('./pages/settings/Settings'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -54,6 +60,11 @@ const routes = [
   { path: "/stores/:status?", name:"Stores", component:Stores},
   { path: "/products/:status?", name:"Products", component:Products},
   { path: "/brands/:status?", name:"Brands", component:BrandPage},
+  { path: "/funds/wallet", name:"Wallet", component:Wallet},
+  { path: "/widget/create", name:"Create Widget", component:CreateWidget},
+  { path: "/widgets/:status?", name:"Widgets", component:WidgetsPage},
+  { path: "/locations", name:"Locations", component: LocationsPage},
+  { path: "/settings", name:"Settings", component: SettingsPage},
 
 
 
@@ -65,7 +76,7 @@ const routes = [
 
   { path: "/payment/init", name:"Payments", component:Payments},
 
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardPage },
 
   { path: "/orders/:order_status", name: 'Store Orders', component: Orders },
 
@@ -106,7 +117,7 @@ const routes = [
   { path: '/notifications/badges', name: 'Badges', component: Badges },
   { path: '/notifications/modals', name: 'Modals', component: Modals },
   { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
-  { path: '/widgets', name: 'Widgets', component: Widgets },
+  { path: '/demo/widgets', name: 'Widgets', component: Widgets },
 ];
 
 export default routes;

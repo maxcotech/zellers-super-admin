@@ -16,6 +16,81 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavDropdown',
+    name: 'Manage Widgets',
+    to: '/widgets',
+    icon: <CIcon name="cil-calculator" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Create Widget',
+        to: '/widget/create',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Widgets',
+        to: '/widgets',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Active Widgets',
+        to: '/widgets/'+resourceStatus.active,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inactive Widgets',
+        to: '/widgets/'+resourceStatus.inactive,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Draft Widgets',
+        to: '/widgets/'+resourceStatus.in_draft,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Review Widgets',
+        to: '/widgets/'+resourceStatus.in_review,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Blacklisted Widgets',
+        to: '/widgets/'+resourceStatus.blacklisted,
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      }
+    ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
     name: 'Manage Categories',
     to: '/categories',
     icon: <CIcon name="cil-calculator" customClasses="c-sidebar-nav-icon"/>,
@@ -283,20 +358,75 @@ const _nav =  [
 
     ]
   },
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  ,
-
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Funds',
+    to: '/funds',
+    icon: <CIcon name="cil-credit-card" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Wallet',
+        to: '/funds/wallet',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+     
+      
+    ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Locations',
+    to: '/locations',
+    icon: <CIcon name="cil-credit-card" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Supported Countries',
+        to: '/locations',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+     
+      
+    ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Manage Account',
+    to: '/settings',
+    icon: <CIcon name="cil-credit-card" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Account Settings',
+        to: '/settings',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+     
+      
+    ]
+  },
   {
     _tag: 'CSidebarNavItem',
     name: 'Logout',
@@ -306,7 +436,20 @@ const _nav =  [
       color: 'success',
       text: 'NEW',
     }
-  },
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+/*
+  
   {
     _tag: 'CSidebarNavTitle',
     _children: ['Theme']
@@ -601,7 +744,7 @@ const _nav =  [
   {
     _tag: 'CSidebarNavDivider',
     className: 'm-2'
-  }
+  }*/
 ]
 
 export default _nav

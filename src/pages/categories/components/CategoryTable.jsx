@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { CCard, CCardBody, CCardHeader, CAlert, CButton, CButtonGroup, CCol, CRow } from "@coreui/react";
+import { CCard, CCardBody, CCardHeader, CAlert, CButton, CButtonGroup, CCol, CRow, CInputGroup, CInputGroupAppend } from "@coreui/react";
 import ExpandableImage from "src/components/ExpandableImage";
 import PaginationComponent from "src/components/PaginationComponent";
 import { useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ import SubCategoryBtn from "./SubCategoryBtn";
 import AppModal from "src/components/AppModal";
 import CategoryForm from "./CategoryForm";
 import UpdateCategoryBtn from "./UpdateCategoryBtn";
-import SelectResourceStatus from "./SelectResourceStatus";
+import SelectResourceStatus from "../../../components/SelectResourceStatus";
 import LoadingBtn from "src/components/LoadingBtn";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import CategoryProductsBtn from "./CategoryProductsBtn";
@@ -87,20 +87,20 @@ const CategoryTable = (props) => {
                 <CCardHeader>
                     <h4 className="inline-block"><Spinner status={loading} /> {title ?? "Categories"}</h4>
                     <div className="card-header-actions" >
-                        <CRow>
-                            <CCol>
-                                <select onChange={onStatusChange} value={params.status} className="form-control">
+                        <CInputGroup>
+                           
+                                <select onChange={onStatusChange} value={params.status} className="form-control inline-block">
                                     <option value={resourceStatus.active}>Active Categories</option>
                                     <option value={resourceStatus.inactive}>Inactive Categories</option>
                                     <option value={resourceStatus.in_draft}>Categories in draft</option>
                                     <option value={resourceStatus.in_review}>Categories in review</option>
                                     <option value={resourceStatus.blacklisted}>Blacklisted Categories</option>
                                 </select>
-                            </CCol>
-                            <CCol>
+                           
+                            <CInputGroupAppend>
                                 <CButton onClick={() => setShowForm(true)} color="dark" >+ Add Category</CButton>
-                            </CCol>
-                        </CRow>
+                            </CInputGroupAppend>
+                        </CInputGroup>
 
                     </div>
                 </CCardHeader>

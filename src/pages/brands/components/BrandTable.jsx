@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import ExpandableImage from "src/components/ExpandableImage";
 import LoadingBtn from "src/components/LoadingBtn";
 import { confirmAction } from "src/config/helpers/message_helpers";
-import SelectResourceStatus from "src/pages/categories/components/SelectResourceStatus";
+import SelectResourceStatus from "src/components/SelectResourceStatus";
 import { deleteBrand, fetchBrands, updateBrandStatus } from "src/redux/actions/BrandActions";
 import BrandProductsBtn from "./BrandProductsBtn";
 import UpdateBrandBtn from "./UpdateBrandBtn";

@@ -5,7 +5,7 @@ import HtmlEntity from "src/components/HtmlEntity";
 import LoadingBtn from "src/components/LoadingBtn";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { normalizeSnakeCasing } from "src/config/helpers/string_helpers";
-import SelectResourceStatus from "src/pages/categories/components/SelectResourceStatus";
+import SelectResourceStatus from "src/components/SelectResourceStatus";
 import { deleteProduct, fetchProducts, updateProductStatus } from "src/redux/actions/ProductActions";
 import ProductDetailsBtn from "./ProductDetailsBtn";
 
