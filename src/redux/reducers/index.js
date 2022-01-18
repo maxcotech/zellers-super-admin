@@ -20,6 +20,7 @@ import UserReducer from "./UserReducer";
 import VariationOptionReducer from "./VariationOptionReducer";
 import WalletReducer from "./WalletReducer";
 import WidgetReducer from "./WidgetReducer";
+import WRequestReducer from "./WRequestReducer";
 
 const appReducers = combineReducers({
     auth:AuthReducer,
@@ -41,7 +42,8 @@ const appReducers = combineReducers({
     widget:WidgetReducer,
     dashboard:DashboardReducer,
     state:StateReducer,
-    city:CityReducer
+    city:CityReducer,
+    wrequest:WRequestReducer
 });
 
 const rootReducers = (state,action) => {
