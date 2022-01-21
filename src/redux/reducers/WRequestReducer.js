@@ -3,7 +3,7 @@ import { WREQUEST_ACTION_TYPES } from './../action_types/WRequestActionTypes';
 const initState = {
     requests:[],
     current_link:null,
-    params:{},
+    params:{status:0},
     links:[]
 
 }
@@ -24,7 +24,8 @@ const WRequestReducer = (state = initState, {type,payload}) => {
             return {
                 ...state,params:payload
             }
-        }
+        };
+        default: return state;
     }
 }
 

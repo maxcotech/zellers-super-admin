@@ -370,13 +370,22 @@ const _nav =  [
     _children:[
       {
         _tag: 'CSidebarNavItem',
-        name: 'Wallet',
+        name: 'Admin Wallet',
         to: '/funds/wallet',
         badge: {
           color: 'success',
           text: 'NEW',
         },
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Withdrawal Requests',
+        to: '/funds/withdrawal-requests',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      }
      
       
     ]
