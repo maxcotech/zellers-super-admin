@@ -72,7 +72,7 @@ const Widgets = () => {
                                       <tbody>
                                           {
                                               widgets.map((item,index) => (
-                                                  <tr id={"widget_"+item.id}>
+                                                  <tr key={"widget_"+item.id}>
                                                       <td>{index + 1}</td>
                                                       <td>{item.widget_title ?? "N/A"}</td>
                                                       <td>{item.widget_link_text ?? "N/A"}</td>
