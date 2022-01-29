@@ -1,0 +1,5 @@
+export const SUPPORT_ACTION_TYPES = {
+    setMessages: "SET_SUPPORT_MESSAGES",
+    setCurrentLink: "SET_CURRENT_SUPPORT_MESSAGE_LINK",
+    setParams: "SET_CURRENT_SUPPORT_MESSAGE_PARAMS"
+}

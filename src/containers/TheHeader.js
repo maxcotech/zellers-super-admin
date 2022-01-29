@@ -63,7 +63,7 @@ const TheHeader = () => {
 
       <CHeaderNav className="px-3">
         <CHeaderNavItem  className="px-3">
-        <CHeaderNavLink to="/settings"><span className="inline-block" style={{textTransform:"capitalize"}}>{first_name ?? ""} {last_name ?? ""}</span></CHeaderNavLink>
+        <CHeaderNavLink to="/settings"><span className="inline-block" style={{fontSize:"1.2em",textTransform:"capitalize"}}>{first_name ?? ""} {last_name ?? ""}</span></CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="px-3">
           <ExpandableImage height="40px" width="auto" borderRadius="50%" src={'images/avatar.jpg'} />

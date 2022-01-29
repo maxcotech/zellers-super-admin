@@ -16,6 +16,7 @@ import StaffTokenReducer from "./StaffTokenReducer";
 import StateReducer from "./StateReducer";
 import StoreReducer from "./StoreReducer";
 import StoreStaffReducer from "./StoreStaffReducer";
+import SupportReducer from "./SupportReducer";
 import UserReducer from "./UserReducer";
 import VariationOptionReducer from "./VariationOptionReducer";
 import WalletReducer from "./WalletReducer";
@@ -43,7 +44,8 @@ const appReducers = combineReducers({
     dashboard:DashboardReducer,
     state:StateReducer,
     city:CityReducer,
-    wrequest:WRequestReducer
+    wrequest:WRequestReducer,
+    support:SupportReducer
 });
 
 const rootReducers = (state,action) => {

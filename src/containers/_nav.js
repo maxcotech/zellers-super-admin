@@ -437,6 +437,47 @@ const _nav =  [
     ]
   },
   {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Support Messages',
+    to: '/supports',
+    icon: <CIcon name="cil-pencil" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'success',
+      text: 'NEW',
+    },
+    _children:[
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Unread Messages',
+        to: '/supports/0',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Read Messages',
+        to: '/supports/1',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'All Messages',
+        to: '/supports',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      }
+     
+      
+    ]
+  },
+  {
     _tag: 'CSidebarNavItem',
     name: 'Logout',
     to: '/logout',
