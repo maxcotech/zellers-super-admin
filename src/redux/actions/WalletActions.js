@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { BASE_URL } from "src/config/constants/app_constants";
 import { handleAxiosError } from "src/config/helpers/http_helpers";
 import { WALLET_ACTION_TYPES } from "../action_types/WalletActionTypes";
+import { postService } from "./ActionServices";
 import { setLoading } from "./AppActions";
 
 export const defaultWalletUrl = `${BASE_URL}admin/wallet`;
@@ -25,6 +26,18 @@ export const setParams = (params) => {
     return {
         type:WALLET_ACTION_TYPES.setParams,
         payload:params
+    }
+}
+
+export const debitWallet = (data,iloader = null,onComplete = null) => {
+    return (dispatch) => {
+        dispatch(postService(`${BASE_URL}admin/wallet/debit`,data,{iloader,onComplete}));
+    }
+}
+
+export const creditWallet = (data,iloader = null,onComplete = null) => {
+    return (dispatch) => {
+        dispatch(postService(`${BASE_URL}admin/wallet/credit`,data,{iloader,onComplete}));
     }
 }
 

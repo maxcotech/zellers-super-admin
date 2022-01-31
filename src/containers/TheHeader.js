@@ -13,15 +13,9 @@ import {
 
 // routes config
 import routes from '../routes'
-
-import { 
-  TheHeaderDropdown,
-  TheHeaderDropdownMssg,
-  TheHeaderDropdownNotif,
-  TheHeaderDropdownTasks
-}  from './index'
 import { setSideBarStatus } from 'src/redux/actions/AppActions'
 import SelectCurrencyInput from 'src/components/SelectCurrencyInput'
+import ExpandableImage from 'src/components/ExpandableImage'
 
 const TheHeader = () => {
   const dispatch = useDispatch()
@@ -37,6 +31,8 @@ const TheHeader = () => {
     dispatch(setSideBarStatus(val))
   }
 
+  const {first_name,last_name} = useSelector(state => state.auth?.user)
+
   return (
     <CHeader withSubheader>
       <CToggler
@@ -50,7 +46,7 @@ const TheHeader = () => {
         onClick={toggleSidebar}
       />
       <CHeaderBrand className="mx-auto d-lg-none" to="/">
-        <h3>ZELLER<span className="text-danger">SUPER</span></h3> {/*<CIcon name="logo" height="48" alt="Logo"/>*/}
+        <h3>ZELLER<span className="text-success">SUPER</span></h3> {/*<CIcon name="logo" height="48" alt="Logo"/>*/}
       </CHeaderBrand>
 
       <CHeaderNav className="d-md-down-none mr-auto">
@@ -66,10 +62,12 @@ const TheHeader = () => {
       </CHeaderNav>
 
       <CHeaderNav className="px-3">
-        <TheHeaderDropdownNotif/>
-        <TheHeaderDropdownTasks/>
-        <TheHeaderDropdownMssg/>
-        <TheHeaderDropdown/>
+        <CHeaderNavItem  className="px-3">
+        <CHeaderNavLink to="/settings"><span className="inline-block" style={{fontSize:"1.2em",textTransform:"capitalize"}}>{first_name ?? ""} {last_name ?? ""}</span></CHeaderNavLink>
+        </CHeaderNavItem>
+        <CHeaderNavItem className="px-3">
+          <ExpandableImage height="40px" width="auto" borderRadius="50%" src={'images/avatar.jpg'} />
+        </CHeaderNavItem>
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">

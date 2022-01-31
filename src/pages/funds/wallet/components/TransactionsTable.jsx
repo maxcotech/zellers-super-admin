@@ -1,11 +1,9 @@
 import { CBadge } from "@coreui/react";
-import { useSelector } from "react-redux";
-import HtmlEntity from "src/components/HtmlEntity";
+import Money from './../../../../components/Money';
 
 
 const TransactionsTable = (props) => {
     const {transactions} = props;
-    const {currency_sym} = useSelector(state => state.auth.currency);
     const getFundLockStatus = (order_commission_lock) => {
         if(order_commission_lock !== null){
             return order_commission_lock.status_text
@@ -43,7 +41,7 @@ const TransactionsTable = (props) => {
                         transactions.map((item,index) => (
                             <tr key={'trx-'+item.id}>
                                 <td>{index + 1}</td>
-                                <td><HtmlEntity>{currency_sym+item.amount}</HtmlEntity></td>
+                                <td><Money>{item.amount}</Money></td>
                                 <td><a href={"mailto:"+item.sender_email}>{item.sender_email}</a></td>
                                 <td>{item.sender_type_text}</td>
                                 <td><CBadge color={(item.ledger_type == 1)? "success":"danger" }>{item.ledger_type_text}</CBadge></td>

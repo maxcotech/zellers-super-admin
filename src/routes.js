@@ -52,6 +52,9 @@ const CreateWidget = React.lazy(() => import('./pages/widgets/CreateWidget'));
 const DashboardPage = React.lazy(() => import('./pages/dashboard/Dashboard'));
 const LocationsPage = React.lazy(() => import('./pages/locations/Locations'));
 const SettingsPage = React.lazy(() => import('./pages/settings/Settings'));
+const WRequests = React.lazy(() => import('./pages/funds/withdrawal_requests/WithdrawalRequests'));
+const SupportsPage = React.lazy(() => import('./pages/support/SupportMessages'));
+const HomeBannersPage = React.lazy(() => import('./pages/widgets/HomeBanners'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -61,10 +64,13 @@ const routes = [
   { path: "/products/:status?", name:"Products", component:Products},
   { path: "/brands/:status?", name:"Brands", component:BrandPage},
   { path: "/funds/wallet", name:"Wallet", component:Wallet},
+  { path: "/funds/withdrawal-requests", name:"Withdrawal Request", component:WRequests},
   { path: "/widget/create", name:"Create Widget", component:CreateWidget},
   { path: "/widgets/:status?", name:"Widgets", component:WidgetsPage},
   { path: "/locations", name:"Locations", component: LocationsPage},
   { path: "/settings", name:"Settings", component: SettingsPage},
+  { path: "/supports/:seen?", name:"Support Messages", component: SupportsPage},
+  { path: "/home-banners", name:"Home Page Banners", component: HomeBannersPage},
 
 
 

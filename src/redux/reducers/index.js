@@ -16,10 +16,12 @@ import StaffTokenReducer from "./StaffTokenReducer";
 import StateReducer from "./StateReducer";
 import StoreReducer from "./StoreReducer";
 import StoreStaffReducer from "./StoreStaffReducer";
+import SupportReducer from "./SupportReducer";
 import UserReducer from "./UserReducer";
 import VariationOptionReducer from "./VariationOptionReducer";
 import WalletReducer from "./WalletReducer";
 import WidgetReducer from "./WidgetReducer";
+import WRequestReducer from "./WRequestReducer";
 
 const appReducers = combineReducers({
     auth:AuthReducer,
@@ -41,7 +43,9 @@ const appReducers = combineReducers({
     widget:WidgetReducer,
     dashboard:DashboardReducer,
     state:StateReducer,
-    city:CityReducer
+    city:CityReducer,
+    wrequest:WRequestReducer,
+    support:SupportReducer
 });
 
 const rootReducers = (state,action) => {

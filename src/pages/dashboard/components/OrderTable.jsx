@@ -1,12 +1,10 @@
 import { CBadge } from "@coreui/react";
-import { useSelector } from "react-redux";
-import HtmlEntity from "src/components/HtmlEntity";
 import { getOrderStatusColor, getOrderStatusText } from "src/config/app_config/order_config";
+import Money from './../../../components/Money';
 
 
 const OrderTable = (props) => {
     const {orders} = props;
-    const {currency_sym} = useSelector(state => state.auth.currency);
 
     return (
         <>
@@ -31,7 +29,7 @@ const OrderTable = (props) => {
                                     <td>{item.user?.first_name+" "+item.user?.last_name}</td>
                                     <td><a href={`mailto:${item.user?.email}`}>{item.user?.email}</a></td>
                                     <td>{item.order_number}</td>
-                                    <td><HtmlEntity>{currency_sym+item.converted_amount}</HtmlEntity></td>
+                                    <td><Money>{item.converted_amount}</Money></td>
                                     <td>{item.created_at}</td>
                                     
                                     <td><CBadge color={getOrderStatusColor(item.status)}>{getOrderStatusText(item.status)}</CBadge></td>

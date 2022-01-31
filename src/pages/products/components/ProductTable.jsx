@@ -1,18 +1,17 @@
 import { CAlert, CButtonGroup } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import ExpandableImage from "src/components/ExpandableImage";
-import HtmlEntity from "src/components/HtmlEntity";
 import LoadingBtn from "src/components/LoadingBtn";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { normalizeSnakeCasing } from "src/config/helpers/string_helpers";
 import SelectResourceStatus from "src/components/SelectResourceStatus";
 import { deleteProduct, fetchProducts, updateProductStatus } from "src/redux/actions/ProductActions";
 import ProductDetailsBtn from "./ProductDetailsBtn";
+import Money from './../../../components/Money';
 
 
 const ProductTable = (props) => {
     const dispatch = useDispatch();
-    const {currency_sym} = useSelector(state => state.auth.currency);
     const {current_link,params} = useSelector(state => state.product);
     const {products} = props;
     const onChangeProductStatus = (data,iloader = null) => {
@@ -58,8 +57,8 @@ const ProductTable = (props) => {
                                     <td>{item.product_name ?? "N/A"}</td>
                                     <td>{item.product_slug ?? "N/A"}</td>
                                     <td>{item.amount_in_stock ?? "N/A"}</td>
-                                    <td><HtmlEntity>{(item.regular_price) ? currency_sym + item.regular_price : "N/A"}</HtmlEntity></td>
-                                    <td><HtmlEntity>{(item.sales_price) ? currency_sym + item.sales_price : "N/A"}</HtmlEntity></td>
+                                    <td><Money>{(item.regular_price) ? item.regular_price : "N/A"}</Money></td>
+                                    <td><Money>{(item.sales_price) ? item.sales_price : "N/A"}</Money></td>
                                     <td>{normalizeSnakeCasing(item.product_type ?? "N/A")}</td>
                                     <td><SelectResourceStatus changeHandler={onChangeProductStatus} id={item.id} value={item.product_status} /></td>
                                     <td>
