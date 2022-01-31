@@ -7,9 +7,8 @@ import FileUploadComponent from "src/components/FileUploadComponent";
 import { setWidgetItemValue, uploadWidgetImage } from "src/redux/actions/WidgetActions";
 
 const WidgetItemForm = (props) => {
-    const {item_title,item_image_url,item_link} = props.item;
-    const itemLinkRef = useRef(item_link ?? "");
-    const itemTitleRef = useRef(item_title ?? "");
+    const itemLinkRef = useRef(props.item?.item_link ?? "");
+    const itemTitleRef = useRef(props.item?.item_title ?? "");
     const dispatch = useDispatch();
     const setInputStateValue = (e,key) => {
         dispatch(setWidgetItemValue(e.target.value,key,props.index))
@@ -19,8 +18,8 @@ const WidgetItemForm = (props) => {
         dispatch(uploadWidgetImage(file,props.index,iloader))
     }
     useEffect(() => {
-        itemLinkRef.current.value = item_link ?? "";
-        itemTitleRef.current.value = item_title ?? "";
+        itemLinkRef.current.value = props.item?.item_link ?? "";
+        itemTitleRef.current.value = props.item?.item_title ?? "";
     },[props.index])
 
     return (
@@ -29,7 +28,7 @@ const WidgetItemForm = (props) => {
                 <CCardBody>
                     <CRow>
                         <CCol lg={4} sm={12}>
-                            <FileUploadComponent caption="Widget Image" onFileChanged={onFileChanged} file_path={item_image_url ?? null} />
+                            <FileUploadComponent caption="Widget Image" onFileChanged={onFileChanged} file_path={props.item?.item_image_url ?? null} />
                         </CCol>
                         <CCol lg={8} sm={12}>
                             <CFormGroup>
