@@ -3,5 +3,6 @@ export const WIDGET_ACTION_TYPES = {
     setCurrentWidgetItems: 'SET_CURRENT_WIDGET_ITEMS',
     setWidgets: 'SET_WIDGETS',
     setCurrentLink: 'SET_WIDGETS_CURRENT_LINK',
-    setParams:'SET_WIDGETS_PARAMS'
+    setParams:'SET_WIDGETS_PARAMS',
+    setBanners: 'SET_HOME_PAGE_BANNERS'
 }

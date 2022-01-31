@@ -54,6 +54,7 @@ const LocationsPage = React.lazy(() => import('./pages/locations/Locations'));
 const SettingsPage = React.lazy(() => import('./pages/settings/Settings'));
 const WRequests = React.lazy(() => import('./pages/funds/withdrawal_requests/WithdrawalRequests'));
 const SupportsPage = React.lazy(() => import('./pages/support/SupportMessages'));
+const HomeBannersPage = React.lazy(() => import('./pages/widgets/HomeBanners'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -69,6 +70,7 @@ const routes = [
   { path: "/locations", name:"Locations", component: LocationsPage},
   { path: "/settings", name:"Settings", component: SettingsPage},
   { path: "/supports/:seen?", name:"Support Messages", component: SupportsPage},
+  { path: "/home-banners", name:"Home Page Banners", component: HomeBannersPage},
 
 
 

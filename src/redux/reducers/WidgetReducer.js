@@ -10,6 +10,7 @@ const initState = {
         is_block:"",
         items:[]
     },
+    banners:[],
     widgets:[],
     indexes:[],
     current_link:null,
@@ -55,6 +56,12 @@ const WidgetReducer = (state = initState,action) => {
             return {
                 ...state,
                 current_link:action.payload
+            }
+        };
+        case WIDGET_ACTION_TYPES.setBanners:{
+            return {
+                ...state,
+                banners:action.payload
             }
         }
         default:return state;

@@ -26,6 +26,15 @@ const _nav =  [
     _children:[
       {
         _tag: 'CSidebarNavItem',
+        name: 'Home Banners',
+        to: '/home-banners',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        _tag: 'CSidebarNavItem',
         name: 'Create Widget',
         to: '/widget/create',
         badge: {

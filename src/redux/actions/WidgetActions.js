@@ -3,10 +3,12 @@ import { toast } from "react-toastify";
 import { BASE_URL } from "src/config/constants/app_constants";
 import { handleAxiosError } from "src/config/helpers/http_helpers"
 import { WIDGET_ACTION_TYPES } from "../action_types/WidgetActionTypes";
+import { deleteService, getService, postService, putService } from "./ActionServices";
 import { setLoading, useCustomLoader } from "./AppActions";
 
 
 export const defaultWidgetsUrl = `${BASE_URL}widgets`;
+export const setBanners = (payload) => ({type:WIDGET_ACTION_TYPES.setBanners,payload});
 export const setWidgets = (payload) => {
     return {
         type: WIDGET_ACTION_TYPES.setWidgets,
@@ -282,5 +284,31 @@ export const deleteWidget = (widget_id,iloader = null,onComplete = null) => {
             handleAxiosError(ex);
             dispatch(useCustomLoader(false,iloader));
         }
+    }
+}
+
+export const uploadBanner = (data, iloader = null,onComplete = null) => {
+    return (dispatch) => {
+        dispatch(postService(`${BASE_URL}home_banner`,data,{iloader,onComplete}))
+    }
+}
+
+export const uploadBannerText = (data, iloader = null, onComplete = null) => {
+    return (dispatch) => {
+        dispatch(putService(`${BASE_URL}home_banner/text`,data,{iloader,onComplete}))
+    }
+}
+
+export const fetchHomeBanners = (iloader = null,onComplete = null) => {
+    return (dispatch) => {
+        dispatch(getService(`${BASE_URL}home_banners`,{iloader,onComplete:(data) => {
+            dispatch(setBanners(data));
+            if(onComplete) onComplete(data);
+        }}));
+    }
+}
+export const deleteHomeBanner = (data,iloader = null, onComplete = null) => {
+    return (dispatch) => {
+        dispatch(deleteService(`${BASE_URL}home_banner/${data}`,{iloader,onComplete}));
     }
 }
