@@ -2,6 +2,7 @@ export const UserRoles = {
     storeOwner: 12,
     storeStaff: 10,
     superAdmin: 24,
+    admin: 20,
     customer: 1
 }
 

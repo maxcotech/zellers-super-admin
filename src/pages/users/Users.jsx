@@ -1,4 +1,4 @@
-import { CAlert, CBadge, CButton, CCard, CCardBody, CCardHeader } from "@coreui/react";
+import { CAlert, CBadge, CButton, CCard, CCardBody, CCardHeader, CInputGroup, CInputGroupAppend } from "@coreui/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -37,6 +37,7 @@ const Users = (props) => {
             case UserRoles.storeOwner: return "dark";
             case UserRoles.storeStaff: return "secondary";
             case UserRoles.superAdmin: return "success";
+            case UserRoles.admin: return "success";
             default: return "info";
         }
     }
@@ -71,13 +72,21 @@ const Users = (props) => {
                 <CCardHeader>
                     <h4 className="inline-block"><Spinner status={loading} /> Users</h4> 
                     <div className="card-header-actions">
-                        <select onChange={onUserTypeChange} value={filters.user_type ?? ""} className="form-control">
-                            <option value="">All Roles</option>
-                            <option value={UserRoles.superAdmin}>Super Admin</option>
-                            <option value={UserRoles.storeOwner}>Store Owner</option>
-                            <option value={UserRoles.storeStaff}>Store Staff</option>
-                            <option value={UserRoles.customer}>Customer</option>
-                        </select>
+                        <CInputGroup>
+                            <select onChange={onUserTypeChange} value={filters.user_type ?? ""} className="form-control">
+                                <option value="">All Roles</option>
+                                <option value={UserRoles.superAdmin}>Super Admin</option>
+                                <option value={UserRoles.admin}>Admin</option>
+                                <option value={UserRoles.storeOwner}>Store Owner</option>
+                                <option value={UserRoles.storeStaff}>Store Staff</option>
+                                <option value={UserRoles.customer}>Customer</option>
+                            </select>
+                            <CInputGroupAppend>
+                                <CButton color="primary">+ New Admin</CButton>
+                            </CInputGroupAppend>
+                        </CInputGroup>
+                       
+                        
                     </div>
                 </CCardHeader>
                 <CCardBody>
