@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { isSuperAdmin } from '../helpers/auth_helpers';
+import { isAdmin, isSuperAdmin } from '../helpers/auth_helpers';
 
 const AuthGuard = ({ component: Component, redirectTo, loggedIn, currentRoute, userRole, userStore = null, ...rest }) => {
     return <Route {...rest} render={(props) => {
@@ -8,7 +8,7 @@ const AuthGuard = ({ component: Component, redirectTo, loggedIn, currentRoute, u
         let validPath = ['/logout','/login','/invalid/account'];
         if (loggedIn !== false) {
            
-            if (userRole != null && isSuperAdmin(userRole)) {
+            if (userRole != null && (isSuperAdmin(userRole) || isAdmin(userRole))) {
                 console.log('returning generic component');
                 return <Component {...props} />
             } 

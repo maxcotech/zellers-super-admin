@@ -82,3 +82,43 @@ export const deleteUser = (user_id,iloader = null,onComplete = null) => {
         }
     }
 }
+
+export const createAdminAccount = (data,iloader = null,onComplete = null) => {
+    return async (dispatch) => {
+        try{
+            dispatch(useCustomLoader(true,iloader));
+            const result = await axios.post(`${BASE_URL}users/admin`,data);
+            dispatch(useCustomLoader(false,iloader));
+            if(result.data?.status === "success"){
+                toast.success(result.data.message);
+                if(onComplete) onComplete();
+            } else {
+                toast.error(result.data?.message ?? "An Error Occurred");
+            }
+        }
+        catch(ex){
+            handleAxiosError(ex);
+            dispatch(useCustomLoader(false,iloader))
+        }
+    }
+}
+
+export const manageUserPermissions = (data,iloader = null, onComplete = null) => {
+    return async (dispatch) => {
+        try{
+            dispatch(useCustomLoader(true,iloader));
+            const result = await axios.patch(`${BASE_URL}user/permissions`,data);
+            dispatch(useCustomLoader(false,iloader));
+            if(result.data?.status === "success"){
+                toast.success(result.data.message);
+                if(onComplete) onComplete();
+            } else {
+                toast.error(result.data?.message ?? "An Error Occurred");
+            }
+        }
+        catch(ex){
+            handleAxiosError(ex);
+            dispatch(useCustomLoader(false,iloader))
+        }
+    }
+}

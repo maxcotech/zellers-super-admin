@@ -10,7 +10,7 @@ const LoadingBtn = (props) => {
     }
 
     return (
-        <CButton disabled={loading} block={props.block ?? false} color={props.color ?? "primary"} onClick={onClick}>
+        <CButton size={props.size} disabled={loading} block={props.block ?? false} color={props.color ?? "primary"} onClick={onClick}>
             <Spinner color={props.color == "light" ? "dark" : "light"} status={props.status ?? loading} /> {props.children}
         </CButton>
     )

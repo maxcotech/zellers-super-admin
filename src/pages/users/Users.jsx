@@ -1,9 +1,10 @@
-import { CAlert, CBadge, CButton, CCard, CCardBody, CCardHeader, CInputGroup, CInputGroupAppend } from "@coreui/react";
+import { CAlert, CBadge, CButton, CButtonGroup, CCard, CCardBody, CCardHeader, CInput, CInputGroup, CInputGroupAppend, CLabel } from "@coreui/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import AppModal from "src/components/AppModal";
 import LoadingBtn from "src/components/LoadingBtn";
 import PaginationComponent from "src/components/PaginationComponent";
 import Spinner from "src/components/Spinner";
@@ -11,11 +12,14 @@ import { UserRoles } from "src/config/app_config/user_config";
 import { confirmAction } from "src/config/helpers/message_helpers";
 import { deleteUser, fetchUsers } from "src/redux/actions/UserActions";
 import AccountStatusSelect from "./components/AccountStatusSelect";
+import CreateAdminForm from "./components/CreateAdminForm";
+import PermissionManagerBtn from "./components/PermissionManagerBtn";
 
 
 const Users = (props) => {
     const {status} = useParams();
-    const {links,users,current_link} = useSelector(state => state.user);
+    const {links,users,current_link,params = {}} = useSelector(state => state.user);
+    const [showCreateAdmin,setShowCreateAdmin] = useState(false);
     const loading = useSelector(state => state.app.loading);
     const dispatch = useDispatch();
     const [filters,setFilters] = useState({
@@ -82,7 +86,7 @@ const Users = (props) => {
                                 <option value={UserRoles.customer}>Customer</option>
                             </select>
                             <CInputGroupAppend>
-                                <CButton color="primary">+ New Admin</CButton>
+                                <CButton onClick={() => setShowCreateAdmin(true)} color="primary">+ New Admin</CButton>
                             </CInputGroupAppend>
                         </CInputGroup>
                        
@@ -126,11 +130,18 @@ const Users = (props) => {
                                                         <td>{item.created_at}</td>
                                                         <td>{item.email_verified_at == null? <CBadge color="danger">Not Verified</CBadge>:<CBadge color="success">Verified</CBadge>}</td>
                                                         <td>
-                                                            <LoadingBtn
-                                                               onComplete={() => dispatch(fetchUsers(current_link,{...filters}))} 
-                                                               onClick={onDeleteUser} color="danger" data={item.id}>
-                                                                Delete
-                                                            </LoadingBtn>
+                                                            <CButtonGroup size="sm">
+                                                                <LoadingBtn
+                                                                    size="sm"
+                                                                    onComplete={() => dispatch(fetchUsers(current_link,{...filters}))} 
+                                                                    onClick={onDeleteUser} color="danger" data={item.id}>
+                                                                        Delete
+                                                                </LoadingBtn>
+                                                                <PermissionManagerBtn onComplete={() => dispatch(fetchUsers(current_link,params))}  user={item}  size="sm">
+                                                                    Permissions
+                                                                </PermissionManagerBtn>
+                                                            </CButtonGroup>
+                                                            
                                                         </td>
                                                     </tr>
                                                 ))
@@ -151,6 +162,14 @@ const Users = (props) => {
                     }
                 </CCardBody>
             </CCard>
+            <AppModal title="Create Admin Account" show={showCreateAdmin} onClose={() => setShowCreateAdmin(false)}>
+                {
+                    (showCreateAdmin)? <CreateAdminForm onComplete={() => {
+                        setShowCreateAdmin(false);
+                        dispatch(fetchUsers(current_link,params))
+                    }} /> : <></>
+                }
+            </AppModal>
         </>
     )
 }

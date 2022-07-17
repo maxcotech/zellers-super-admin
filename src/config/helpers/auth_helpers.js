@@ -14,3 +14,10 @@ export const isSuperAdmin = (role) => {
     }
     return false;
 }
+
+export const isAdmin = (role) => {
+    if(role == UserRoles.admin){
+        return true;
+    }
+    return false;
+}
